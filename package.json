@@ -1,0 +1,82 @@
+{
+  "name": "linter-erb-lint",
+  "main": "./lib/linter-erb-lint.js",
+  "version": "1.0.0",
+  "description": "Linter plugin for ERB, using Shopify erb-lint",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vzamanillo/linter-erb-lint"
+  },
+  "keywords": [
+    "linter",
+    "lint",
+    "erb"
+  ],
+  "license": "MIT",
+  "configSchema": {
+    "executablePath": {
+      "type": "string",
+      "description": "The path to the erblint. Find by running `which erblint`",
+      "default": "erblint"
+    },
+    "disableWhenNoConfigFile": {
+      "type": "boolean",
+      "title": "Disable when no .erb-lint.yml config file is found",
+      "default": false,
+      "description": "Only run linter if a erb-lint config file is found somewhere in the path for the current file."
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/vzamanillo/linter-erb-lint/issues"
+  },
+  "homepage": "https://github.com/vzamanillo/linter-erb-lint#readme",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.7.0 <2.0.0"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "apm test"
+  },
+  "dependencies": {
+    "atom-linter": "^10.0.0",
+    "atom-package-deps": "^4.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.6.0",
+    "eslint-config-airbnb-base": "^12.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "jasmine-fix": "^1.3.0"
+  },
+  "package-deps": [
+    "linter"
+  ],
+  "providedServices": {
+    "linter": {
+      "versions": {
+        "1.1.0": "provideLinter"
+      }
+    }
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "rules": {
+      "global-require": "off",
+      "import/no-unresolved": [
+        "error",
+        {
+          "ignore": [
+            "atom"
+          ]
+        }
+      ]
+    },
+    "globals": {
+      "atom": true
+    },
+    "env": {
+      "node": true,
+      "browser": true
+    }
+  }
+}
