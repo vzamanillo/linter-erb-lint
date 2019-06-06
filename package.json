@@ -30,7 +30,6 @@
     "url": "https://github.com/vzamanillo/linter-erb-lint/issues"
   },
   "homepage": "https://github.com/vzamanillo/linter-erb-lint#readme",
-  "license": "MIT",
   "engines": {
     "atom": ">=1.7.0 <2.0.0"
   },
